@@ -1,4 +1,3 @@
-/* Reserve Slots Component Styles */
 .reserve-slots-container {
   background: white;
   border-radius: 12px;
@@ -22,7 +21,6 @@
   margin: 0 0 20px 0;
 }
 
-/* Form Styles */
 .form-group {
   margin-bottom: 15px;
   padding-right: 2rem;
@@ -76,7 +74,6 @@
   border: 2px solid #cbd5e0;
 }
 
-/* Error and Info Messages */
 .error-message {
   color: #e53e3e;
   font-size: 0.85rem;
@@ -117,7 +114,6 @@
   }
 }
 
-/* Submit Button */
 button[type="submit"] {
   width: 100%;
   padding: 15px;
@@ -149,7 +145,6 @@ button[type="submit"] {
   }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .reserve-slots-container {
     padding: 20px;

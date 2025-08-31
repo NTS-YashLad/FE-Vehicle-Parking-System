@@ -194,8 +194,6 @@
           color: #999;
           font-style: italic;
         }
-
-        // Row styling based on severity
         .notification-row {
           transition: background-color 0.2s ease;
 
@@ -244,7 +242,6 @@
   }
 }
 
-// Responsive design
 @media (max-width: 768px) {
   .notifications-container {
     padding: 10px;
@@ -271,7 +268,6 @@
   }
 }
 
-// Additional utility classes
 .severity-high {
   color: #f44336 !important;
 }

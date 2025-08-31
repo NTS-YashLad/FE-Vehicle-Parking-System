@@ -1,4 +1,3 @@
-/* Parking Dashboard Styles */
 .parking-dashboard {
   padding: 20px;
   max-width: 100%;
@@ -8,7 +7,6 @@
   min-height: 100vh;
 }
 
-/* Header Styles */
 .dashboard-header {
   display: flex;
   justify-content: space-between;
@@ -63,7 +61,6 @@
   to { transform: rotate(360deg); }
 }
 
-/* Loading Styles */
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -83,7 +80,6 @@
   margin-bottom: 20px;
 }
 
-/* Statistics Cards */
 .stats-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -132,7 +128,6 @@
   font-weight: 500;
 }
 
-/* Card Color Variants */
 .vehicles-card .stat-icon {
   background: rgba(56, 178, 172, 0.1);
 }
@@ -165,7 +160,6 @@
   color: #48bb78;
 }
 
-/* Slots Section */
 .slots-section {
   background: white;
   border-radius: 12px;
@@ -182,7 +176,6 @@
   text-align: center;
 }
 
-/* Slots Grid */
 .slots-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -190,7 +183,6 @@
   margin-bottom: 30px;
 }
 
-/* Slot Box Styles */
 .slot-box {
   border: 2px solid #e2e8f0;
   border-radius: 12px;
@@ -206,7 +198,6 @@
   }
 }
 
-/* Slot Status Colors */
 .slot-occupied {
   background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
   border-color: #f56565;
@@ -239,7 +230,6 @@
   }
 }
 
-/* Blinking Animation */
 .slot-blinking {
   animation: blink 1.5s infinite;
 }
@@ -249,7 +239,6 @@
   25%, 75% { opacity: 0.7; }
 }
 
-/* Slot Header */
 .slot-header {
   display: flex;
   justify-content: space-between;
@@ -289,7 +278,6 @@
   }
 }
 
-/* Slot Content */
 .slot-content {
   flex: 1;
 }
@@ -321,7 +309,6 @@
   word-break: break-word;
 }
 
-/* Empty Slot Message */
 .empty-slot-message {
   display: flex;
   flex-direction: column;
@@ -338,7 +325,6 @@
   margin-bottom: 10px;
 }
 
-/* Action Button */
 .slot-actions {
   margin-top: 5px;
   padding-top: 10px;
@@ -366,7 +352,6 @@
   }
 }
 
-/* Legend */
 .legend {
   background: white;
   padding: 20px;
@@ -413,7 +398,6 @@
   }
 }
 
-/* Responsive Design */
 @media (max-width: 1200px) {
   .slots-grid {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -484,7 +468,6 @@
   }
 }
 
-/* Animations */
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -508,14 +491,12 @@
   animation: slideIn 0.6s ease-out;
 }
 
-/* Focus and Accessibility */
 .refresh-btn:focus,
 .vacate-btn:focus {
   outline: 3px solid rgba(102, 126, 234, 0.5);
   outline-offset: 2px;
 }
 
-/* Print Styles */
 @media print {
   .refresh-btn,
   .vacate-btn {

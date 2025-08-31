@@ -48,7 +48,6 @@
   font-size: 1.1rem;
 }
 
-/* Main Container */
 .container-wrapper {
   display: flex;
   flex-direction: column;
@@ -69,7 +68,6 @@
   flex: 1;
 }
 
-/* Summary Section */
 .summary-section {
   background: white;
   border-radius: 12px;
@@ -116,7 +114,6 @@
   }
 }
 
-/* No Slots Message */
 .no-slots-message {
   text-align: center;
   padding: 60px 20px;
@@ -139,7 +136,6 @@
   font-size: 1rem;
 }
 
-/* Summary Slots Grid */
 .slots-summary-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -218,7 +214,6 @@
   word-break: break-word;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .reserve-vacate-wrapper {
     padding: 15px;
