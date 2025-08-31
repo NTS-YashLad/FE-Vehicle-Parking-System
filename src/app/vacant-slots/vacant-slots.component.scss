@@ -1,0 +1,238 @@
+/* Vacant Slots Component Styles */
+.vacant-slots-container {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.title {
+  color: #2d3748;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  text-align: center;
+}
+
+.subtitle {
+  color: #718096;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+/* Empty Message */
+.empty-message {
+  text-align: center;
+  padding: 40px 20px;
+  color: #48bb78;
+
+  .empty-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin: 0 0 10px 0;
+    color: #2d3748;
+  }
+
+  p {
+    color: #718096;
+    margin: 0;
+  }
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 25px;
+
+  label {
+    display: block;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+  }
+
+  select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 40px;
+
+    &:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+  }
+}
+
+.error-message {
+  color: #e53e3e;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+/* Slot Details Card */
+.slot-details-card {
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+
+  h4 {
+    margin: 0 0 15px 0;
+    color: #2d3748;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4a5568;
+  }
+
+  .value {
+    font-size: 0.9rem;
+    color: #2d3748;
+    
+    &.status {
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      align-self: flex-start;
+      
+      &.occupied {
+        background: #f56565;
+        color: white;
+      }
+      
+      &.reserved {
+        background: #ed8936;
+        color: white;
+      }
+    }
+  }
+}
+
+/* Vacate Button */
+.vacate-button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #c53030 0%, #9c2626 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(229, 62, 62, 0.3);
+  }
+
+  &:disabled {
+    background: #a0aec0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+/* Success Message */
+.success-message {
+  background: #c6f6d5;
+  border: 2px solid #48bb78;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 20px;
+  color: #22543d;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Occupied Summary */
+.occupied-summary {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 2px solid #e2e8f0;
+
+  h3 {
+    color: #2d3748;
+    font-size: 1.3rem;
+    margin: 0 0 20px 0;
+    font-weight: 600;
+  }
+}
+
+.occupied-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.occupied-slot-card {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 15px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.slot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #cbd5e0;
+}
+
+.slot-id {
+  font-weight: 700;
+}

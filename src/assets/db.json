@@ -1,0 +1,171 @@
+{
+    "slots": [
+        {
+            "id": 101,
+            "status": "occupied",
+            "carNumber": "KA-01-A-1001",
+            "employeeName": "John Doe",
+            "isReserved": false,
+            "arrivalDateTime": "2024-08-29T09:00:00.000Z",
+            "reservationEndDateTime": "2024-08-29T14:00:00.000Z"
+        },
+        {
+            "id": 102,
+            "status": "occupied",
+            "carNumber": "MH-02-B-1002",
+            "employeeName": "Jane Smith",
+            "isReserved": false,
+            "arrivalDateTime": "2024-08-29T09:00:00.000Z",
+            "reservationEndDateTime": "2024-08-29T14:00:00.000Z"
+        },
+        {
+            "id": 103,
+            "status": "occupied",
+            "carNumber": "UP-03-C-1003",
+            "employeeName": "Peter Jones",
+            "isReserved": false,
+            "arrivalDateTime": "2024-08-29T08:55:00.000Z",
+            "reservationEndDateTime": "2024-08-29T13:55:00.000Z"
+        },
+        {
+            "id": 104,
+            "status": "occupied",
+            "carNumber": "DL-04-D-1004",
+            "employeeName": "Mary Brown",
+            "isReserved": false,
+            "arrivalDateTime": "2024-08-29T08:50:00.000Z",
+            "reservationEndDateTime": "2024-08-29T13:50:00.000Z"
+        },
+        {
+            "id": 105,
+            "status": "occupied",
+            "carNumber": "TN-05-E-1005",
+            "employeeName": "David Miller",
+            "isReserved": false,
+            "arrivalDateTime": "2024-08-29T08:45:00.000Z",
+            "reservationEndDateTime": "2024-08-29T13:45:00.000Z"
+        },
+        {
+            "id": 106,
+            "status": "occupied",
+            "carNumber": "MH-12-SA-1006",
+            "employeeName": "Peter Blake",
+            "isReserved": true,
+            "arrivalDateTime": "2024-08-29T08:40:00.000Z",
+            "reservationEndDateTime": "2024-08-29T13:40:00.000Z",
+            "isBlinking": true
+        },
+        {
+            "id": 107,
+            "status": "reserved",
+            "carNumber": "GJ-06-EA-1007",
+            "employeeName": "Sam Wilson",
+            "isReserved": true,
+            "arrivalDateTime": "2024-08-29T07:40:00.000Z",
+            "reservationEndDateTime": "2024-08-29T14:30:00.000Z"
+        },
+        {
+            "id": 108,
+            "status": "empty",
+            "isBlinking": false
+        },
+        {
+            "id": 109,
+            "status": "empty",
+            "isBlinking": false
+        },
+        {
+            "id": 110,
+            "status": "empty",
+            "isBlinking": false
+        },
+        {
+            "id": 111,
+            "status": "empty",
+            "isBlinking": false
+        },
+        {
+            "id": 112,
+            "status": "empty",
+            "isBlinking": false
+        },
+        {
+            "id": 113,
+            "status": "empty",
+            "isBlinking": false
+        },
+        {
+            "id": 114,
+            "status": "empty",
+            "isBlinking": false
+        },
+        {
+            "id": 115,
+            "status": "empty",
+            "isBlinking": false
+        },
+        {
+            "id": 116,
+            "status": "empty",
+            "isBlinking": false
+        },
+        {
+            "id": 117,
+            "status": "empty",
+            "isBlinking": false
+        },
+        {
+            "id": 118,
+            "status": "empty",
+            "isBlinking": false
+        },
+        {
+            "id": 119,
+            "status": "empty",
+            "isBlinking": false
+        },
+        {
+            "id": 120,
+            "status": "empty",
+            "isBlinking": false
+        }
+    ],
+    "notifications": [
+        {
+            "id": 1,
+            "timestamp": "2025-08-29T08:40:00.000Z",
+            "message": "Car with number GJ-06-F-1006 has arrived and occupied a reserved slot.",
+            "slotId": 106
+        },
+        {
+            "id": 2,
+            "timestamp": "2025-08-29T08:45:00.000Z",
+            "message": "A new car has arrived at slot 105.",
+            "slotId": 105
+        },
+        {
+            "id": 3,
+            "timestamp": "2025-08-29T08:50:00.000Z",
+            "message": "Mary Brown arrived at slot 104.",
+            "slotId": 104
+        },
+        {
+            "id": 4,
+            "timestamp": "2025-08-29T08:55:00.000Z",
+            "message": "Slot 103 occupied.",
+            "slotId": 103
+        },
+        {
+            "id": 5,
+            "timestamp": "2025-08-29T09:00:00.000Z",
+            "message": "Slots 101 and 102 are now occupied.",
+            "slotId": 101
+        },
+        {
+            "id": 6,
+            "timestamp": "2025-08-29T13:40:00.000Z",
+            "message": "Slot 106 reservation has expired.",
+            "slotId": 106
+        }
+    ]
+}

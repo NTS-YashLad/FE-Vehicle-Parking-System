@@ -1,0 +1,139 @@
+<div class="parking-dashboard">
+  <!-- Header -->
+  <div class="dashboard-header">
+    <h1 class="dashboard-title">Welcome, You can easily view all available slots</h1>
+    <button class="refresh-btn" (click)="refreshData()" [disabled]="loading">
+      <span class="refresh-icon">🔄</span>
+      Refresh
+    </button>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="loading-spinner"></div>
+    <p>Loading parking data...</p>
+  </div>
+
+  <!-- Dashboard Content -->
+  <div *ngIf="!loading" class="dashboard-content">
+    
+    <!-- Statistics Cards -->
+    <div class="stats-cards">
+      <div class="stat-card vehicles-card">
+        <div class="stat-icon">🚗</div>
+        <div class="stat-content">
+          <h3 class="stat-number">{{ totalVehicles }}</h3>
+          <p class="stat-label">Total Vehicles</p>
+        </div>
+      </div>
+
+      <div class="stat-card occupied-card">
+        <div class="stat-icon">🔴</div>
+        <div class="stat-content">
+          <h3 class="stat-number">{{ totalOccupiedSlots }}</h3>
+          <p class="stat-label">Occupied Slots</p>
+        </div>
+      </div>
+
+      <div class="stat-card reserved-card">
+        <div class="stat-icon">📅</div>
+        <div class="stat-content">
+          <h3 class="stat-number">{{ totalReservedSlots }}</h3>
+          <p class="stat-label">Reserved Slots</p>
+        </div>
+      </div>
+
+      <div class="stat-card empty-card">
+        <div class="stat-icon">🟢</div>
+        <div class="stat-content">
+          <h3 class="stat-number">{{ emptySlots }}</h3>
+          <p class="stat-label">Available Slots</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parking Slots Grid -->
+    <div class="slots-section">
+      <!-- <h2 class="section-title">Parking Slots Layout</h2> -->
+      
+      <div class="slots-grid">
+        <div 
+          *ngFor="let slot of slots" 
+          class="slot-box"
+          [ngClass]="{
+            'slot-occupied': slot.status === 'occupied',
+            'slot-reserved': slot.status === 'reserved',
+            'slot-empty': slot.status === 'empty',
+            'slot-blinking': slot.isBlinking
+          }">
+          
+          <!-- Slot Header -->
+          <div class="slot-header">
+            <span class="slot-number">{{ slot.id }}</span>
+            <span class="slot-status" [ngClass]="slot.status">
+              {{ slot.status | titlecase }}
+            </span>
+          </div>
+
+          <!-- Slot Content -->
+          <div class="slot-content">
+            <div *ngIf="slot.status === 'occupied' || slot.status === 'reserved'" class="slot-details">
+              <div class="detail-row" *ngIf="slot.carNumber">
+                <span class="detail-label">Car:</span>
+                <span class="detail-value">{{ slot.carNumber }}</span>
+              </div>
+              
+              <div class="detail-row" *ngIf="slot.employeeName">
+                <span class="detail-label">Employee:</span>
+                <span class="detail-value">{{ slot.employeeName }}</span>
+              </div>
+              
+              <div class="detail-row" *ngIf="slot.arrivalDateTime">
+                <span class="detail-label">Arrival:</span>
+                <span class="detail-value">{{ slot.arrivalDateTime | datetime }}</span>
+              </div>
+              
+              <div class="detail-row" *ngIf="slot.reservationEndDateTime">
+                <span class="detail-label">End Time:</span>
+                <span class="detail-value">{{ slot.reservationEndDateTime | datetime }}</span>
+              </div>
+
+              <!-- Action Button -->
+              <div class="slot-actions" *ngIf="slot.status === 'occupied'">
+                <button 
+                  class="vacate-btn" 
+                  (click)="vacateSlot(slot.id)">
+                  Vacate Slot
+                </button>
+              </div>
+            </div>
+
+            <div *ngIf="slot.status === 'empty'" class="empty-slot-message">
+              <span class="empty-icon">🅿️</span>
+              <span>Available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <h3>Legend</h3>
+      <div class="legend-items">
+        <div class="legend-item">
+          <div class="legend-color occupied"></div>
+          <span>Occupied</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color reserved"></div>
+          <span>Reserved</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color empty"></div>
+          <span>Available</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="reserve-vacate-wrapper">
+  <!-- Header -->
+  <div class="page-header">
+    <h1>You can Reserve or vacate a Parking slot</h1>
+    <button class="refresh-btn" (click)="refreshData()">
+      <span class="refresh-icon">🔄</span>
+      Refresh Data
+    </button>
+  </div>
+
+  <!-- Main Container with Reserve and Vacate Components -->
+  <div class="container-wrapper">
+    <app-reserve-slots class="flex-item"></app-reserve-slots>
+    <app-vacant-slots class="flex-item"></app-vacant-slots>
+  </div>
+
+  <!-- Summary Section - Occupied and Reserved Slots -->
+  <div class="summary-section">
+    <div class="summary-header">
+      <h2>Current Parking Status</h2>
+      <div class="status-counts">
+        <span class="count-badge occupied">Occupied: {{ totalOccupiedSlots }}</span>
+        <span class="count-badge reserved">Reserved: {{ totalReservedSlots }}</span>
+      </div>
+    </div>
+
+    <div *ngIf="occupiedAndReservedSlots.length === 0" class="no-slots-message">
+      <div class="empty-parking-icon">🅿️</div>
+      <h3>All Parking Slots Are Empty</h3>
+      <p>No vehicles are currently parked or have reservations.</p>
+    </div>
+
+    <div *ngIf="occupiedAndReservedSlots.length > 0" class="slots-summary-grid">
+      <div *ngFor="let slot of occupiedAndReservedSlots" class="summary-slot-card">
+        <div class="summary-slot-header">
+          <span class="summary-slot-id">{{ slot.id }}</span>
+          <span class="summary-slot-status" [ngClass]="slot.status">
+            {{ slot.status | titlecase }}
+          </span>
+        </div>
+        
+        <div class="summary-slot-details">
+          <div class="summary-detail-row">
+            <span class="summary-label">Employee:</span>
+            <span class="summary-value">{{ slot.employeeName }}</span>
+          </div>
+          
+          <div class="summary-detail-row">
+            <span class="summary-label">Vehicle:</span>
+            <span class="summary-value">{{ slot.carNumber }}</span>
+          </div>
+          
+          <div class="summary-detail-row">
+            <span class="summary-label">Arrival:</span>
+            <span class="summary-value">{{ slot.arrivalDateTime! | datetime }}</span>
+          </div>
+          
+          <div class="summary-detail-row">
+            <span class="summary-label">End Time:</span>
+            <span class="summary-value">{{ slot.reservationEndDateTime! | datetime }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+{
+  "/api/parking/slots": "/slots",
+  "/api/parking/park/:id": "/slots/:id",
+  "/api/parking/vacate/:id": "/slots/:id",
+  "/api/parking/notifications": "/notifications"
+}

@@ -1,27 +1,21 @@
-# CarParking
+# Employee Parking Management System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+This is a single-page application (SPA) built with Angular v16, designed to streamline the management of an employee parking lot. The system provides real-time monitoring of parking slots, facilitates hassle-free reservations, and keeps employees informed through a comprehensive notification system.
 
-## Development server
+## Key Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Real-time Slot Monitoring:** An intuitive dashboard displays the live status of all parking spaces, showing which slots are occupied, available, or reserved.
 
-## Code scaffolding
+- **Hassle-free Reservations:** Employees can easily reserve a parking spot in advance, ensuring a guaranteed space upon arrival.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Intuitive UI:** Built with Angular Material, the user interface is clean, responsive, and easy to navigate on both desktop and mobile devices.
 
-## Build
+## Technology Stack
+- **Frontend:** Angular v16, TypeScript
+- **UI/UX:** Angular Material, CSS
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Getting Started
+Follow these steps to set up and run the project locally.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Clone the Repository
+`git clone https://github.com/YashLad06/Vehicle-Parking-System.git`

@@ -1,0 +1,102 @@
+<div class="vacant-slots-container">
+  <h2 class="title">Vacate Parking Slot</h2>
+  <p class="subtitle">Select a slot to vacate.</p>
+
+  <!-- Show message if all slots are empty -->
+  <div *ngIf="allSlotsEmpty" class="empty-message">
+    <div class="empty-icon">🅿️</div>
+    <h3>All slots are empty now</h3>
+    <p>No vehicles are currently parked in any slot.</p>
+  </div>
+
+  <!-- Form for vacating slots -->
+  <div *ngIf="!allSlotsEmpty">
+    <form [formGroup]="vacateForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="slotNumber">Select Slot to Vacate</label>
+        <select id="slotNumber" formControlName="slotNumber" required>
+          <option value="" disabled>-- Select occupied slot --</option>
+          <option *ngFor="let slot of occupiedSlots" [value]="slot.id">
+            Slot {{ slot.id }} - {{ slot.employeeName }}
+            <span *ngIf="slot.status === 'reserved'">(Reserved)</span>
+          </option>
+        </select>
+        <div
+          *ngIf="
+            vacateForm.get('slotNumber')?.invalid &&
+            (vacateForm.get('slotNumber')?.dirty ||
+              vacateForm.get('slotNumber')?.touched)
+          "
+          class="error-message"
+        >
+          Please select a slot to vacate.
+        </div>
+      </div>
+
+      <!-- Show selected slot details -->
+      <div *ngIf="selectedSlotDetails" class="slot-details-card">
+        <h4>Slot Details</h4>
+        <div class="detail-grid">
+          <div class="detail-item">
+            <span class="label">Slot Number:</span>
+            <span class="value">{{ selectedSlotDetails.id }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Status:</span>
+            <span class="value status" [ngClass]="selectedSlotDetails.status">
+              {{ selectedSlotDetails.status | titlecase }}
+            </span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Employee:</span>
+            <span class="value">{{ selectedSlotDetails.employeeName }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Car Number:</span>
+            <span class="value">{{ selectedSlotDetails.carNumber }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Arrival Time:</span>
+            <span class="value">{{ selectedSlotDetails.arrivalDateTime! | datetime }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">End Time:</span>
+            <span class="value">{{ selectedSlotDetails.reservationEndDateTime! | datetime }}</span>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="vacateForm.invalid" class="vacate-button">
+        Vacate Selected Slot
+      </button>
+    </form>
+
+    <!-- Success Message -->
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+
+    <!-- Currently Occupied Slots Summary -->
+    <!-- <div class="occupied-summary">
+      <h3>Currently Occupied Slots ({{ totalOccupiedSlots }})</h3>
+      <div class="occupied-slots-grid">
+        <div *ngFor="let slot of occupiedSlots" class="occupied-slot-card">
+          <div class="slot-header">
+            <span class="slot-id">{{ slot.id }}</span>
+            <span class="slot-status" [ngClass]="slot.status">{{ slot.status | titlecase }}</span>
+          </div>
+          <div class="slot-info">
+            <p><strong>{{ slot.employeeName }}</strong></p>
+            <p class="car-number">{{ slot.carNumber }}</p>
+            <p class="time-info">
+              Arrival: {{ slot.arrivalDateTime! | datetime }}
+            </p>
+            <p class="time-info">
+              End: {{ slot.reservationEndDateTime! | datetime }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>

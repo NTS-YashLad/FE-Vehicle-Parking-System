@@ -1,0 +1,116 @@
+<div class="reserve-slots-container">
+  <h2 class="title">Reserve a Parking Slot</h2>
+  <p class="subtitle">Please fill out the form to reserve a spot.</p>
+
+  <form [formGroup]="reserveForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="employeeName">Employee Name</label>
+      <input
+        type="text"
+        id="employeeName"
+        formControlName="employeeName"
+        placeholder="Enter Employee Name"
+        required
+      />
+      <div
+        *ngIf="
+          reserveForm.get('employeeName')?.invalid &&
+          (reserveForm.get('employeeName')?.dirty ||
+            reserveForm.get('employeeName')?.touched)
+        "
+        class="error-message"
+      >
+        Employee name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vehicleNo">Vehicle Number</label>
+      <input
+        type="text"
+        id="vehicleNo"
+        formControlName="vehicleNo"
+        placeholder="e.g., KA-01-A-1001"
+        required
+      />
+      <div
+        *ngIf="
+          reserveForm.get('vehicleNo')?.invalid &&
+          (reserveForm.get('vehicleNo')?.dirty ||
+            reserveForm.get('vehicleNo')?.touched)
+        "
+        class="error-message"
+      >
+        <span *ngIf="reserveForm.get('vehicleNo')?.errors?.['required']">
+          Vehicle number is required.
+        </span>
+        <span *ngIf="reserveForm.get('vehicleNo')?.errors?.['invalidVehicleNo']">
+          Enter a valid Indian car number (e.g., KA-09-AD-1001).
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="arrivalTime">Arrival Time</label>
+      <input
+        type="time"
+        id="arrivalTime"
+        formControlName="arrivalTime"
+        required
+      />
+      <div
+        *ngIf="
+          reserveForm.get('arrivalTime')?.invalid &&
+          (reserveForm.get('arrivalTime')?.dirty ||
+            reserveForm.get('arrivalTime')?.touched)
+        "
+        class="error-message"
+      >
+        Arrival time is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="reservedSpot">Select a Spot</label>
+      <select id="reservedSpot" formControlName="reservedSpot" required>
+        <option value="" disabled>-- Select a slot --</option>
+        <option *ngFor="let slotId of availableSlots" [value]="slotId">
+          Slot {{ slotId }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          reserveForm.get('reservedSpot')?.invalid &&
+          (reserveForm.get('reservedSpot')?.dirty ||
+            reserveForm.get('reservedSpot')?.touched)
+        "
+        class="error-message"
+      >
+        Please select a parking slot.
+      </div>
+      <div *ngIf="availableSlots.length === 0" class="info-message">
+        No slots available for reservation.
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="departureTime">
+      <label>Calculated Departure Time</label>
+      <span class="departure-time">{{ departureTime | datetime }}</span>
+    </div>
+
+    <button type="submit" [disabled]="reserveForm.invalid || availableSlots.length === 0">
+      Reserve Slot
+    </button>
+  </form>
+
+  <div *ngIf="reservedSpot" class="success-message">
+    <p>
+      Reservation successful for slot
+      <strong>{{ reservedSpot.id }}</strong>
+    </p>
+    <p>
+      Your reservation is valid until
+      <strong>{{ reservedSpot.reservationEndDateTime! | datetime }}</strong>
+    </p>
+  </div>
+</div>
